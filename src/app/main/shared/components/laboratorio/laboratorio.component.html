@@ -1,0 +1,160 @@
+<form [formGroup]="_laboratorioService.form">
+  <div class="formgrid grid">
+    <div class="col-12 md:col-12 lg:col-12 xl:col-12 mt-3">
+      <div class="field grid align-items-center">
+        <label for="swLaboratoriosRecientes" class="col-auto mr-2">¿Tiene laboratorios recientes o menores a un año? <sup class="text-red-600 font-medium">*</sup></label>
+        <div class="flex flex-wrap gap-3">
+          <div class="flex align-items-center">
+            <p-radioButton name="swLaboratoriosRecientes" [value]="true" (onClick)="_laboratorioService.resetLabs($event.value)" formControlName="swLaboratoriosRecientes" inputId="si"></p-radioButton>
+            <label for="si" class="ml-2">Sí</label>
+          </div>
+
+          <div class="flex align-items-center">
+            <p-radioButton name="swLaboratoriosRecientes" [value]="false" (onClick)="_laboratorioService.resetLabs($event.value)" formControlName="swLaboratoriosRecientes" inputId="no"></p-radioButton>
+            <label for="no" class="ml-2">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="formgrid grid" *ngIf="_laboratorioService.form.value.swLaboratoriosRecientes">
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swPresionArterial" class="col-12 mb-2 md:col-4 md:mb-0">Presión arterial</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swPresionArterial" [value]="true" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'presionArterial')" formControlName="swPresionArterial" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swPresionArterial" [value]="false" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'presionArterial')" formControlName="swPresionArterial" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="presionArterial" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swGlucosa" class="col-12 mb-2 md:col-4 md:mb-0">Glucosa</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swGlucosa" [value]="true" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'glucosa')" formControlName="swGlucosa" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swGlucosa" [value]="false" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'glucosa')" formControlName="swGlucosa" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="glucosa" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swColesterol" class="col-12 mb-2 md:col-4 md:mb-0">Colesterol T. CLDL CHDL</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swColesterol" [value]="true" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'colesterol')" formControlName="swColesterol" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swColesterol" [value]="false" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'colesterol')" formControlName="swColesterol" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="colesterol" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swTrigliceridos" class="col-12 mb-2 md:col-4 md:mb-0">Trigliceridos</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swTrigliceridos" [value]="true" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'trigliceridos')" formControlName="swTrigliceridos" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swTrigliceridos" [value]="false" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'trigliceridos')" formControlName="swTrigliceridos" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="trigliceridos" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swHemoglobina" class="col-12 mb-2 md:col-4 md:mb-0">Hemoglobina</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swHemoglobina" [value]="true" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'hemoglobina')" formControlName="swHemoglobina" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swHemoglobina" [value]="false" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'hemoglobina')" formControlName="swHemoglobina" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="hemoglobina" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swGlicasilada" class="col-12 mb-2 md:col-4 md:mb-0">Glicasilada para dm</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swGlicasilada" [value]="true" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'glicasilada')" formControlName="swGlicasilada" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swGlicasilada" [value]="false" (onClick)="_laboratorioService.validarCheck($event.value, _laboratorioService.form, 'glicasilada')" formControlName="swGlicasilada" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="glicasilada" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

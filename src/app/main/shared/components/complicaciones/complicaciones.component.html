@@ -1,0 +1,257 @@
+<form [formGroup]="_complicacionesService.form">
+  <div class="formgrid grid">
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swInfartoAgudoMiocardio" class="col-12 mb-2 md:col-4 md:mb-0">Infarto agudo de miocardio</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swInfartoAgudoMiocardio" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'infartoAgudoMiocardio')" formControlName="swInfartoAgudoMiocardio" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swInfartoAgudoMiocardio" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'infartoAgudoMiocardio')" formControlName="swInfartoAgudoMiocardio" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="infartoAgudoMiocardio" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swInsuficienciaCardiaca" class="col-12 mb-2 md:col-4 md:mb-0">Insuficiencia cardiaca</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swInsuficienciaCardiaca" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'insuficienciaCardiaca')" formControlName="swInsuficienciaCardiaca" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swInsuficienciaCardiaca" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'insuficienciaCardiaca')" formControlName="swInsuficienciaCardiaca" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="insuficienciaCardiaca" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swAccidenteCerebroVascular" class="col-12 mb-2 md:col-4 md:mb-0">Accidente cerebro vascular</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swAccidenteCerebroVascular" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'accidenteCerebroVascular')" formControlName="swAccidenteCerebroVascular" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swAccidenteCerebroVascular" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'accidenteCerebroVascular')" formControlName="swAccidenteCerebroVascular" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="accidenteCerebroVascular" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swAmputacion" class="col-12 mb-2 md:col-4 md:mb-0">Amputación</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swAmputacion" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'amputacion')" formControlName="swAmputacion" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swAmputacion" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'amputacion')" formControlName="swAmputacion" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="amputacion" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swNefropatiaDiabetica" class="col-12 mb-2 md:col-4 md:mb-0">Nefropatia diabetica</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swNefropatiaDiabetica" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'nefropatiaDiabetica')" formControlName="swNefropatiaDiabetica" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swNefropatiaDiabetica" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'nefropatiaDiabetica')" formControlName="swNefropatiaDiabetica" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="nefropatiaDiabetica" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swHigadoGraso" class="col-12 mb-2 md:col-4 md:mb-0">Hígado graso</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swHigadoGraso" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'higadoGraso')" formControlName="swHigadoGraso" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swHigadoGraso" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'higadoGraso')" formControlName="swHigadoGraso" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="higadoGraso" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swRetinopatiaHipertensiva" class="col-12 mb-2 md:col-4 md:mb-0">Retinopatia hipertensiva</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swRetinopatiaHipertensiva" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'retinopatiaHipertensiva')" formControlName="swRetinopatiaHipertensiva" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swRetinopatiaHipertensiva" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'retinopatiaHipertensiva')" formControlName="swRetinopatiaHipertensiva" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="retinopatiaHipertensiva" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swCirrosis" class="col-12 mb-2 md:col-4 md:mb-0">Cirrosis</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swCirrosis" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'cirrosis')" formControlName="swCirrosis" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swCirrosis" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'cirrosis')" formControlName="swCirrosis" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="cirrosis" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swEnfermedadRenalCronica" class="col-12 mb-2 md:col-4 md:mb-0">Enfermedad renal crónica</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swEnfermedadRenalCronica" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'enfermedadRenalCronica')" formControlName="swEnfermedadRenalCronica" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swEnfermedadRenalCronica" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'enfermedadRenalCronica')" formControlName="swEnfermedadRenalCronica" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="enfermedadRenalCronica" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swEpocEpid" class="col-12 mb-2 md:col-4 md:mb-0">EPOC/EPID</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swEpocEpid" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'epocEpid')" formControlName="swEpocEpid" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swEpocEpid" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'epocEpid')" formControlName="swEpocEpid" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="epocEpid" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swNeuropatiaPeriferica" class="col-12 mb-2 md:col-4 md:mb-0">Neuropatia periférica</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swNeuropatiaPeriferica" [value]="true" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'neuropatiaPeriferica')" formControlName="swNeuropatiaPeriferica" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swNeuropatiaPeriferica" [value]="false" (onClick)="_complicacionesService.validarCheck($event.value, _complicacionesService.form, 'neuropatiaPeriferica')" formControlName="swNeuropatiaPeriferica" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="neuropatiaPeriferica" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

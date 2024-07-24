@@ -1,0 +1,68 @@
+<p-confirmDialog key="confirmAddRef" [style]="{width: '30vw'}"></p-confirmDialog>
+
+<p-confirmDialog key="antecedentesRef" [style]="{width: '30vw'}"></p-confirmDialog>
+
+<p-card header="Buscar paciente">
+  <form [formGroup]="_pacienteService.form_buscar">
+    <div class="formgrid grid">
+      <div class="field col-12 md:col-12 lg:col-4">
+        <label htmlFor="tipo_documento">Tipo documento <sup class="text-red-600 font-medium">*</sup></label>
+        <p-dropdown placeholder="Seleccione" [options]="comboTipoDocumento" styleClass="w-full p-inputtext-sm" formControlName="tipo_documento" optionLabel="descripcion" optionValue="valor" appendTo="body"></p-dropdown>
+      </div>
+      <div class="field col-12 md:col-12 lg:col-4">
+        <label htmlFor="numero_documento">Número de documento<sup class="text-red-600 font-medium">*</sup></label>
+        <input placeholder="" type="string" formControlName="numero_documento" class="max-w-full p-inputtext-sm w-full" pInputText/>
+      </div>
+      <div class="field col-12 md:col-3 lg:col-3" style="align-self: end !important;">
+        <p-button icon="pi pi-search" [label]="loadingSearch? 'Buscando...' :'Buscar'" class="border-round-lg" (onClick)="buscarPaciente()" [disabled]="!this._pacienteService.form_buscar.valid ||loadingSearch"></p-button>
+      </div>
+    </div>
+  </form>
+</p-card>
+
+<p-table [value]="searchedPoblacion" [tableStyle]="{ 'min-width': '50rem' }" styleClass="mt-3" *ngIf="searchedPoblacion.length >=1">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre completo</th>
+      <th>Identificación</th>
+      <th>Edad</th>
+      <th>Teléfono</th>
+      <th>Código de asegurador</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{ product.nombres + " " + product?.primerApellido + " " + product?.segundoApellido}}</td>
+      <td>{{ product.tipoIdentificacionId + " " +product.identificacion }}</td>
+      <td>{{ product.edad }}</td>
+      <td>{{ product.celular }}</td>
+      <td>{{ product.codigoAsegurado }}</td>
+      <td>
+        <p-button icon="pi pi-chevron-circle-right" styleClass="p-button-rounded p-button-danger p-button-outlined" label="Añadir" iconPos="right" (click)="addListaGestion(product)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Entecedentes médicos" [(visible)]="showModalProgramas" [modal]="true" [style]="{width: '30vw'}" [maximizable]="false">
+  <ng-template pTemplate="header">
+    <div class="inline-flex align-items-center justify-content-center gap-2">
+      <i class="pi pi-book iconsModalDialog"></i> &nbsp;
+      <span class="font-bold white-space-nowrap titleModalDialog">Confirmación datos</span>
+    </div>
+  </ng-template>
+  <div class="modal-body">
+    <div class="formgrid grid">
+      <div class="field col-12 md:col-12 lg:col-12 xl:col-12">
+        <label htmlFor="antecedentes">Antecedentes</label>
+        <p-multiSelect styleClass="w-full p-inputtext-sm" [options]="comboAntecedentes" [(ngModel)]="selectedAntecedentes" [filter]="true" placeholder="Seleccione" optionLabel="descripcion" appendTo="body" (onChange)="onAntecedentesChange($event)"></p-multiSelect>
+      </div>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+      <p-button icon="pi pi-times" (click)="showModalProgramas = false" label="Cancelar" pAutoFocus [autofocus]="true"></p-button>
+
+      <p-button icon="pi pi-save" [disabled]="selectedAntecedentes.length < 1" (click)="addPaciente()" label="Confirmar" pAutoFocus [autofocus]="true"></p-button>
+  </ng-template>
+</p-dialog>

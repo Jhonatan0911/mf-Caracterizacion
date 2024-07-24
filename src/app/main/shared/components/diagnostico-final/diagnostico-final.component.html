@@ -1,0 +1,36 @@
+<form [formGroup]="_diagnosticoService.form" class="mt-3">
+  <div class="formgrid grid">
+    <div class="field col-12 md:col-12 lg:col-12">
+      <label htmlFor="prioridadIngresoPrograma">Prioridad pasa a ingreso al programa</label>
+      <p-dropdown placeholder="Seleccione" [options]="comboPrioridad" styleClass="w-full p-inputtext-sm" formControlName="prioridadIngresoPrograma" [autoDisplayFirst]="false" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="field col-12 md:col-12 mb-2">
+      <label>Diagnóstico</label>
+      <p-autoComplete #diagnosticosRef [suggestions]="comboDiagnosticos" [showClear]="true" (completeMethod)="filterDiagnostico($event)" field="descripcion" styleClass="w-full" formControlName="diagnostico"></p-autoComplete>
+      <small id="diagnostico-help">Busca a partir del 3 caracter</small>
+    </div>
+  </div>
+</form>
+<div class="flex my-3 justify-content-end">
+  <p-button icon="pi pi-plus" label="Añadir" class="border-round-lg" (onClick)="addDiagnostico()"></p-button>
+</div>
+<p-table [value]="_diagnosticoService.dianosticosSelected" [tableStyle]="{ 'min-width': '50rem' }" styleClass="mt-3" *ngIf="_diagnosticoService.dianosticosSelected.length >=1">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{ product.id}}</td>
+      <td>{{ product.codigo }}</td>
+      <td>{{ product.descripcion }}</td>
+      <td>
+        <p-button icon="pi pi-trash" styleClass="p-button-rounded p-button-danger p-button-outlined" (click)="deleteDxSelected(product)"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,74 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm cache clean --force
+    npm install -g @angular/cli@16.2.12
+  displayName: 'Install angular'
+
+- script: |
+    npm install --force
+  displayName: 'npm install'
+
+- script: |
+    echo "Verificando contenido del directorio"
+    dir $(System.DefaultWorkingDirectory)
+    echo "Verificando contenido del directorio node_modules"
+    dir $(System.DefaultWorkingDirectory)\node_modules
+  displayName: 'Verificar contenido del directorios'
+
+- script: |
+    npm run build
+  displayName: 'npm build'
+
+- script: |
+    echo "Verificando contenido del directorio dist/caracterizacion"
+    dir $(System.DefaultWorkingDirectory)\dist\caracterizacion
+  displayName: 'Verificar contenido del directorio de construcción'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/dist/caracterizacion'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/angular'
+  displayName: 'Copy Angular Files to Staging Directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/angular'
+    ArtifactName: 'caracterizacion'
+  displayName: 'Publish Angular Artifact'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    artifact: 'caracterizacion'
+    path: '$(Build.ArtifactStagingDirectory)/angular'
+  displayName: 'Download Angular Artifact'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Import-Module WebAdministration
+
+      $websiteName = 'caracterizacion'
+      $websitePath = 'C:\IIS\caracterizacion\src'
+      $artifactPath = '$(Build.ArtifactStagingDirectory)\angular'
+
+      if (Test-Path $websitePath) {
+          Remove-Item -Recurse -Force $websitePath
+      }
+
+      New-Item -Path $websitePath -ItemType Directory -Force
+
+      Copy-Item "$artifactPath\*" -Destination $websitePath -Recurse -Force
+  displayName: 'Deploy to IIS'

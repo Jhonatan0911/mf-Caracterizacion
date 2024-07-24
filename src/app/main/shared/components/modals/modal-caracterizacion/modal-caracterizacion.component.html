@@ -1,0 +1,33 @@
+<p-confirmDialog [style]="{width: '30vw'}"></p-confirmDialog>
+<div class="flex my-3 justify-content-end">
+  <p-button icon="pi pi-save" class="border-round-lg" (onClick)="loadingSave ? null : submit()" [disabled]="loadingSave" [label]="loadingSave ? 'Guardando...' :  'Guardar'"></p-button>
+</div>
+
+<div class="card mt-3">
+  <p-tabView [activeIndex]="0">
+    <p-tabPanel header="Anamnesis">
+      <app-anamnesis></app-anamnesis>
+    </p-tabPanel>
+
+    <p-tabPanel header="Laboratorios">
+      <app-laboratorio></app-laboratorio>
+    </p-tabPanel>
+
+    <p-tabPanel header="Complicaciones">
+      <app-complicaciones></app-complicaciones>
+    </p-tabPanel>
+
+    <p-tabPanel header="Score">
+      <app-score></app-score>
+    </p-tabPanel>
+
+    <p-tabPanel header="Cohorte">
+      <app-cohorte></app-cohorte>
+    </p-tabPanel>
+
+    <p-tabPanel header="Diagnostico Final">
+      <app-diagnostico-final></app-diagnostico-final>
+    </p-tabPanel>
+
+  </p-tabView>
+</div>

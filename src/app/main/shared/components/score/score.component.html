@@ -1,0 +1,78 @@
+<h5 class="mt-3 mb-2">Frahminghan</h5>
+<form [formGroup]="_scoreService.form_framinghan">
+  <div class="formgrid grid">
+    <div class="field col-12 md:col-4 lg:col-4">
+      <label htmlFor="edad">Edad</label>
+      <p-inputNumber formControlName="edad" [min]="0" styleClass="max-w-full p-inputtext-sm w-full"></p-inputNumber>
+    </div>
+    <div class="field col-12 md:col-4 lg:col-4">
+      <label htmlFor="colesterolTotal">Colesterol total</label>
+      <p-inputNumber formControlName="colesterolTotal" [min]="0" styleClass="max-w-full p-inputtext-sm w-full"></p-inputNumber>
+    </div>
+    <div class="field col-12 md:col-4 lg:col-4">
+      <label htmlFor="colesterolHDL">Colesterol HDL</label>
+      <p-inputNumber formControlName="colesterolHDL" [min]="0" styleClass="max-w-full p-inputtext-sm w-full"></p-inputNumber>
+    </div>
+    <div class="field col-12 md:col-4 lg:col-4">
+      <label htmlFor="presionSistolica">Presión arterial sistolica</label>
+      <p-inputNumber formControlName="presionSistolica" [min]="0" styleClass="max-w-full p-inputtext-sm w-full"></p-inputNumber>
+    </div>
+    <div class="field col-12 md:col-4 lg:col-4">
+      <label htmlFor="swFumador">¿Fumador?</label>
+      <div class="flex gap-3">
+        <div class="flex align-items-center">
+          <p-radioButton inputId="si" [value]="true" formControlName="swFumador" name="swFumador"></p-radioButton>
+          <label for="si" class="ml-2">Sí</label>
+        </div>
+        <div class="flex align-items-center">
+          <p-radioButton inputId="no" [value]="false" formControlName="swFumador" name="swFumador"></p-radioButton>
+          <label for="no" class="ml-2">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="field col-12 md:col-4 lg:col-4">
+      <label htmlFor="swTratamiento">¿Tratamiento HTA?</label>
+      <div class="flex gap-3">
+        <div class="flex align-items-center">
+          <p-radioButton inputId="si" [value]="true" formControlName="swTratamiento"></p-radioButton>
+          <label for="si" class="ml-2">Sí</label>
+        </div>
+        <div class="flex align-items-center">
+          <p-radioButton inputId="no" [value]="false" formControlName="swTratamiento"></p-radioButton>
+          <label for="no" class="ml-2">No</label>
+        </div>
+      </div>
+    </div>
+    <div class="field col-12 md:col-6 lg:col-6">
+      <label htmlFor="rcv">RCV FRAMIGHAM (%)</label>
+      <input placeholder="" type="string" formControlName="rcv" class="max-w-full p-inputtext-sm w-full" pInputText/>
+    </div>
+    <div class="field col-12 md:col-6 lg:col-6">
+      <label htmlFor="nivelRiesgo">NIVEL DE RIESGO</label>
+      <input placeholder="" type="string" formControlName="nivelRiesgo" class="max-w-full p-inputtext-sm w-full" pInputText/>
+    </div>
+  </div>
+</form>
+<h5>Barthel</h5>
+<br>
+<div id="form">
+  <div *ngFor="let item of formBarthel">
+    <div class="formgrid grid">
+      <label class="col-3 font-bold">{{item.padre.descripcion}}</label>
+      <div class="col-9 grid">
+        <div class="col-12">
+          <label class="block mb-2" *ngFor="let itemh of item.hijos">
+            <p-radioButton [(ngModel)]="itemh.padre.valueSM" name="{{item.padre.id}}" (click)="checkoptions(item.padre, itemh.padre)" [value]="itemh.padre" styleClass="mr-2"></p-radioButton>
+            <strong>{{itemh.padre.referencia}}</strong> {{itemh.padre.descripcion}}
+            <span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <hr style="opacity: 0.2;">
+  </div>
+</div>
+<div class="flex flex-row-reverse flex-wrap" *ngIf="_scoreService.totalpuntajeBarthel > 0">
+
+  <p-message styleClass="mt-2" severity="info" text="{{'Interpretación: ' + _scoreService.totalpuntajeBarthel + ' ' + _scoreService.interpretacionBarthel}}"></p-message>
+</div>

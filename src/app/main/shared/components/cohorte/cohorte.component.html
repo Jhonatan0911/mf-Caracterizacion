@@ -1,0 +1,188 @@
+<form [formGroup]="_cohorteService.form">
+  <div class="formgrid grid">
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swCuidate" class="col-12 mb-2 md:col-4 md:mb-0">Cuidate</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swCuidate" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'cuidate')" formControlName="swCuidate" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swCuidate" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'cuidate')" formControlName="swCuidate" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="cuidate" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swOncologico" class="col-12 mb-2 md:col-4 md:mb-0">Oncológico</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swOncologico" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'oncologico')" formControlName="swOncologico" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swOncologico" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'oncologico')" formControlName="swOncologico" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="oncologico" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swRcv" class="col-12 mb-2 md:col-4 md:mb-0">RCV</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swRcv" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'rcv')" formControlName="swRcv" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swRcv" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'rcv')" formControlName="swRcv" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="rcv" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swCuidadoColumna" class="col-12 mb-2 md:col-4 md:mb-0">Cuidado de columna</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swCuidadoColumna" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'cuidadoColumna')" formControlName="swCuidadoColumna" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swCuidadoColumna" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'cuidadoColumna')" formControlName="swCuidadoColumna" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="cuidadoColumna" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swHipotiroidismo" class="col-12 mb-2 md:col-4 md:mb-0">Hipotiroidismo</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swHipotiroidismo" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'hipotiroidismo')" formControlName="swHipotiroidismo" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swHipotiroidismo" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'hipotiroidismo')" formControlName="swHipotiroidismo" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="hipotiroidismo" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swSiempreFuertes" class="col-12 mb-2 md:col-4 md:mb-0">Siempre fuertes</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swSiempreFuertes" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'siempreFuertes')" formControlName="swSiempreFuertes" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swSiempreFuertes" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'siempreFuertes')" formControlName="swSiempreFuertes" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="siempreFuertes" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swArtritisReumatoide" class="col-12 mb-2 md:col-4 md:mb-0">Artritis reumatoide</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swArtritisReumatoide" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'artritisReumatoide')" formControlName="swArtritisReumatoide" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swArtritisReumatoide" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'artritisReumatoide')" formControlName="swArtritisReumatoide" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="artritisReumatoide" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-12 lg:col-6 xl:col-6">
+      <div class="field grid align-items-center justify-content-center">
+        <label for="swSaludMental" class="col-12 mb-2 md:col-4 md:mb-0">Cuidate</label>
+        <div class="col-12 md:col-4">
+          <div class="flex align-items-center justify-content-center w-10rem h-4rem font-bold border-round m-2">
+            <div class="flex flex-wrap gap-3">
+              <div class="flex align-items-center">
+                <p-radioButton name="swSaludMental" [value]="true" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'saludMental')" formControlName="swSaludMental" inputId="si"></p-radioButton>
+                <label for="si" class="ml-2">Sí</label>
+              </div>
+
+              <div class="flex align-items-center">
+                <p-radioButton name="swSaludMental" [value]="false" (onClick)="_cohorteService.validarCheck($event.value, _cohorteService.form, 'saludMental')" formControlName="swSaludMental" inputId="no"></p-radioButton>
+                <label for="no" class="ml-2">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="col-12 md:col-4">
+          <input placeholder="" type="string" formControlName="saludMental" class="max-w-full p-inputtext-sm w-full" pInputText/>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
